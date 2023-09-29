@@ -3,6 +3,33 @@ $(function () {
   var currentDate = dayjs().format("MMMM D, YYYY");
   $("#currentDay").text(currentDate);
 
+  // Function to dynamically generate time blocks for 9AM to 5PM
+  function generateTimeBlocks() {
+    var container = $(".container-lg");
+    for (var hour = 9; hour <= 17; hour++) {
+      var timeBlock = $("<div>")
+        .attr("id", "hour-" + hour)
+        .addClass("row time-block");
+      var hourLabel = (hour % 12 === 0 ? 12 : hour % 12) + (hour >= 12 ? "PM" : "AM");
+      var hourDiv = $("<div>")
+        .addClass("col-2 col-md-1 hour text-center py-3")
+        .text(hourLabel);
+      var textarea = $("<textarea>")
+        .addClass("col-8 col-md-10 description")
+        .attr("rows", "3");
+      var saveBtn = $("<button>")
+        .addClass("btn saveBtn col-2 col-md-1")
+        .attr("aria-label", "save")
+        .html('<i class="fas fa-save" aria-hidden="true"></i>');
+
+      timeBlock.append(hourDiv, textarea, saveBtn);
+      container.append(timeBlock);
+    }
+  }
+
+  // Call the function to generate time blocks
+  generateTimeBlocks();
+
   // Function to update time-block classes based on the current time
   function updateTimeBlocks() {
     var currentHour = dayjs().hour();

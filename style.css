@@ -57,3 +57,10 @@ textarea {
   font-size: 20px;
   transition: all 0.3s ease-in-out;
 }
+
+/* Add a fixed height to the container to prevent repetition */
+.container-lg {
+  height: auto; /* Set to your desired height or use auto to fit content */
+  overflow-y: auto; /* Add vertical scrollbar if content overflows */
+}
+
