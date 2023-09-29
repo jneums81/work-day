@@ -1,3 +1,10 @@
+.container-lg {
+  height: auto;
+  overflow-y: auto;
+  position: sticky;
+  top: 0;
+}
+
 body {
   font-family: 'Open Sans', sans-serif;
   font-size: 16px;
@@ -58,9 +65,6 @@ textarea {
   transition: all 0.3s ease-in-out;
 }
 
-/* Add a fixed height to the container to prevent repetition */
-.container-lg {
-  height: auto; /* Set to your desired height or use auto to fit content */
-  overflow-y: auto; /* Add vertical scrollbar if content overflows */
-}
+
+
 
